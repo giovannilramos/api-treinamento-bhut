@@ -30,7 +30,7 @@ public class CarController {
     }
 
     @PutMapping("/{id}")
-    public Car update(Car entity) throws AttributeNotFoundException {
+    public Car update(@RequestBody Car entity) throws AttributeNotFoundException {
         return this.service.update(entity);
     }
 }
