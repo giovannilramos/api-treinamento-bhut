@@ -12,7 +12,7 @@ import javax.persistence.Id;
 @Entity
 @Data
 @AllArgsConstructor
-public class Car {
+public class User {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -21,13 +21,11 @@ public class Car {
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)
-    private String model;
-    @Column(nullable = false)
-    private Integer year;
-    @Column(nullable = false)
-    private Double price;
+    private String password;
+    @Column(unique = true, nullable = false)
+    private String email;
 
-    public Car() {
+    public User() {
 
     }
 }

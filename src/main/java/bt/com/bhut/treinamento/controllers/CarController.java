@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.management.AttributeNotFoundException;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -15,12 +16,12 @@ public class CarController {
     private CarService service;
 
     @PostMapping
-    public Car save(@RequestBody Car entity) {
+    public Car save(@RequestBody Car entity) throws Exception {
         return this.service.save(entity);
     }
 
     @GetMapping
-    public List<Car> getAll() throws AttributeNotFoundException {
+    public ArrayList<Car> getAll() throws AttributeNotFoundException {
         return this.service.getAll();
     }
 
@@ -30,7 +31,7 @@ public class CarController {
     }
 
     @PutMapping("/{id}")
-    public Car update(@RequestBody Car entity) throws AttributeNotFoundException {
-        return this.service.update(entity);
+    public Car update(@PathVariable("id") Long id,@RequestBody Car entity) throws AttributeNotFoundException {
+        return this.service.update(id, entity);
     }
 }
