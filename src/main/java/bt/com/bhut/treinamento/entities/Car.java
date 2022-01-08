@@ -12,7 +12,7 @@ import javax.persistence.Id;
 @Data
 @AllArgsConstructor
 @Builder
-public class CarEntity {
+public class Car {
     @Id
     private Long id;
     @Column(nullable = false)

@@ -1,8 +1,9 @@
 package bt.com.bhut.treinamento.repositories;
 
-import bt.com.bhut.treinamento.entities.CarEntity;
+import bt.com.bhut.treinamento.entities.Car;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CarRepository extends JpaRepository<CarEntity, Long> {
-    boolean findByModelYear(String model, int year);
+public interface CarRepository extends JpaRepository<Car, Long> {
+    Car findByModel(String model);
+    Car findByYear(int year);
 }
