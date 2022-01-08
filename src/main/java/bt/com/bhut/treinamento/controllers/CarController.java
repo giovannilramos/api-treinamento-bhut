@@ -15,7 +15,7 @@ public class CarController {
     private CarService service;
 
     @PostMapping
-    public Car save(Car entity) {
+    public Car save(@RequestBody Car entity) {
         return this.service.save(entity);
     }
 

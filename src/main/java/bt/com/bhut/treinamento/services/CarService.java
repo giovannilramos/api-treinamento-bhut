@@ -14,9 +14,6 @@ public class CarService {
     private CarRepository repository;
 
     public Car save(Car entity) {
-        if(repository.findByModel(entity.getModel()) != null && repository.findByYear(entity.getYear()) != null) {
-            throw new Error("Car already exists");
-        }
        return this.repository.save(entity);
     }
 

@@ -6,6 +6,8 @@ import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -13,14 +15,13 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @Builder
 public class Car {
+    private static final long serialVersionUID = 1L;
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
     private String name;
-    @Column(nullable = false)
     private String model;
-    @Column(nullable = false, length = 4)
-    private int year;
-    @Column(nullable = false)
+    private Integer year;
     private Double price;
 }
