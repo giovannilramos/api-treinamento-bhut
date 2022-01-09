@@ -23,8 +23,6 @@ public class Purchase {
 
     @OneToOne
     private User user;
-    @OneToMany
-    private List<Item> items;
 
     public Purchase() {
 
