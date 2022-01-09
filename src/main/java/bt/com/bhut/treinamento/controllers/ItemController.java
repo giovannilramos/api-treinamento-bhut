@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/item")
@@ -21,12 +21,12 @@ public class ItemController {
     private ItemService service;
 
     @PostMapping
-    public Item save(@RequestBody Item item, @PathVariable("purchaseId") Long purchaseId) throws Exception {
-        return this.service.save(item, purchaseId);
+    public Item save(@RequestBody Item item) throws Exception {
+        return this.service.save(item);
     }
 
     @GetMapping
-    public List<Item> getAll() throws Exception {
+    public ArrayList<Item> getAll() throws Exception {
         return this.service.getAll();
     }
 
@@ -36,12 +36,12 @@ public class ItemController {
     }
 
     @PutMapping("/{id}")
-    public Item update(@PathVariable("id") Long id, @PathVariable("purchaseId") Long purchaseId, @RequestBody Item item) throws Exception {
-        return this.service.update(id, item, purchaseId);
+    public Item update(@PathVariable("id") Long id, @RequestBody Item item) throws Exception {
+        return this.service.update(id, item);
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable("id") Long id, @PathVariable("purchaseId") Long purchaseId) throws Exception {
-        this.service.delete(id, purchaseId);
+    public void delete(@PathVariable("id") Long id) throws Exception {
+        this.service.delete(id);
     }
 }

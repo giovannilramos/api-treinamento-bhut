@@ -1,14 +1,12 @@
 package bt.com.bhut.treinamento.services;
 
 import bt.com.bhut.treinamento.entities.Item;
-import bt.com.bhut.treinamento.entities.Purchase;
 import bt.com.bhut.treinamento.repositories.ItemRepository;
 import bt.com.bhut.treinamento.repositories.PurchaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Optional;
 
 @Service
@@ -18,17 +16,11 @@ public class ItemService {
     @Autowired
     private PurchaseRepository purchaseRepository;
 
-    public Item save(Item item, Long purchaseId) throws Exception {
-        if (!purchaseRepository.findById(purchaseId).isPresent()) {
-            throw new Exception("Purchase not found");
-        }
-        return purchaseRepository.findById(purchaseId).map(el -> {
-            item.setPurchase(el);
-            return repository.save(item);
-        }).get();
+    public Item save(Item item) throws Exception {
+        return repository.save(item);
     }
 
-    public List<Item> getAll() throws Exception {
+    public ArrayList<Item> getAll() throws Exception {
         if (repository.findAll().isEmpty()) {
             throw new Exception("Items not found");
         }
@@ -42,15 +34,11 @@ public class ItemService {
         return repository.findById(id).get();
     }
 
-    public Item update(Long id, Item item, Long purchaseId) throws Exception {
-        Optional<Purchase> purchase = purchaseRepository.findById(purchaseId);
+    public Item update(Long id, Item item) throws Exception {
         Optional<Item> findItem = repository.findById(id);
-        if (!purchase.isPresent()) {
-            throw new Exception("Purchase not found");
-        } else if (!findItem.isPresent()) {
+        if (!findItem.isPresent()) {
             throw new Exception("Item not found");
         }
-
         return findItem.map(el -> {
             item.setQuantity(el.getQuantity());
             item.setPrice(el.getPrice());
@@ -58,14 +46,11 @@ public class ItemService {
         }).get();
     }
 
-    public void delete(Long id, Long purchaseId) throws Exception {
-        Optional<Item> itemAndPurchase = repository.findByIdAndPurchaseId(id, purchaseId);
-        if (!itemAndPurchase.isPresent()) {
+    public void delete(Long id) throws Exception {
+        Optional<Item> item = repository.findById(id);
+        if (!item.isPresent()) {
             throw new Exception("Purchase and Item not found");
         }
-        itemAndPurchase.map(el -> {
-            repository.delete(el);
-            return ResponseEntity.ok().build();
-        });
+        repository.delete(item.get());
     }
 }

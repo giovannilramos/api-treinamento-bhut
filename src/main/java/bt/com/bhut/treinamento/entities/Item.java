@@ -3,7 +3,12 @@ package bt.com.bhut.treinamento.entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 @Data
@@ -18,9 +23,6 @@ public class Item {
     private Integer quantity;
     @Column(nullable = false)
     private Double price;
-
-    @ManyToOne
-    private Purchase purchase;
 
     @OneToOne
     private Car car;
