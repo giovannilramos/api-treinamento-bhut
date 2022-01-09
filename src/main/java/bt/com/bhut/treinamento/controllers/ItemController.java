@@ -20,7 +20,7 @@ public class ItemController {
     @Autowired
     private ItemService service;
 
-    @PostMapping("/purchase/{purchaseId}/item")
+    @PostMapping
     public Item save(@RequestBody Item item, @PathVariable("purchaseId") Long purchaseId) throws Exception {
         return this.service.save(item, purchaseId);
     }
@@ -30,17 +30,17 @@ public class ItemController {
         return this.service.getAll();
     }
 
-    @GetMapping("/purchase/{purchaseId}/item/{id}")
+    @GetMapping("/{id}")
     public Item getById(@PathVariable("id") Long id) throws Exception {
         return this.service.getById(id);
     }
 
-    @PutMapping("/purchase/{purchaseId}/item/{id}")
+    @PutMapping("/{id}")
     public Item update(@PathVariable("id") Long id, @PathVariable("purchaseId") Long purchaseId, @RequestBody Item item) throws Exception {
         return this.service.update(id, item, purchaseId);
     }
 
-    @DeleteMapping("/purchase/{purchaseId}/delete/item/{id}")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") Long id, @PathVariable("purchaseId") Long purchaseId) throws Exception {
         this.service.delete(id, purchaseId);
     }
