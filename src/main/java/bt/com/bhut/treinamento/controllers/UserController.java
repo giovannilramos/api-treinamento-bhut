@@ -1,8 +1,6 @@
 package bt.com.bhut.treinamento.controllers;
 
-import bt.com.bhut.treinamento.entities.Car;
 import bt.com.bhut.treinamento.entities.User;
-import bt.com.bhut.treinamento.services.CarService;
 import bt.com.bhut.treinamento.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.management.AttributeNotFoundException;
 import java.util.ArrayList;
-import java.util.List;
 
 @RestController
 @RequestMapping("/user")
@@ -34,7 +31,7 @@ public class UserController {
         return this.service.getAll();
     }
 
-    @GetMapping("/id/{id}")
+    @GetMapping("/{id}")
     public User getById(@PathVariable("id") Long id) throws AttributeNotFoundException {
         return this.service.getById(id);
     }
@@ -45,7 +42,7 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public User update(@PathVariable("id") Long id,@RequestBody User entity) throws AttributeNotFoundException {
+    public User update(@PathVariable("id") Long id, @RequestBody User entity) throws AttributeNotFoundException {
         return this.service.update(id, entity);
     }
 

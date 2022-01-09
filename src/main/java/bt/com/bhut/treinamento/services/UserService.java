@@ -1,6 +1,5 @@
 package bt.com.bhut.treinamento.services;
 
-import bt.com.bhut.treinamento.entities.Car;
 import bt.com.bhut.treinamento.entities.User;
 import bt.com.bhut.treinamento.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

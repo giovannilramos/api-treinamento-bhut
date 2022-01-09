@@ -16,6 +16,9 @@ public class CarService {
 
     public Car save(Car entity) throws Exception {
         try {
+            if (repository.existsCarByModelAndYear(entity.getModel(), entity.getYear())) {
+                throw new Exception("Car already exists");
+            }
             return this.repository.save(entity);
         } catch (Exception e) {
             throw new Exception(e);
