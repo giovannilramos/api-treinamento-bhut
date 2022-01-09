@@ -19,6 +19,9 @@ public class Item {
     @Column(nullable = false)
     private Double price;
 
+    @ManyToOne
+    private Purchase purchase;
+
     @OneToOne
     private Car car;
 

@@ -3,8 +3,11 @@ package bt.com.bhut.treinamento.entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 @Data
@@ -16,8 +19,6 @@ public class Purchase {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany
-    private List<Item> item;
     @OneToOne
     private User user;
 
