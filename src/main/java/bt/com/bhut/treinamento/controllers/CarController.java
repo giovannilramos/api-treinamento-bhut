@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.management.AttributeNotFoundException;
 import java.util.ArrayList;
-import java.util.List;
 
 @RestController
 @RequestMapping("/car")
@@ -31,7 +30,7 @@ public class CarController {
     }
 
     @PutMapping("/{id}")
-    public Car update(@PathVariable("id") Long id,@RequestBody Car entity) throws AttributeNotFoundException {
+    public Car update(@PathVariable("id") Long id, @RequestBody Car entity) throws AttributeNotFoundException {
         return this.service.update(id, entity);
     }
 }
