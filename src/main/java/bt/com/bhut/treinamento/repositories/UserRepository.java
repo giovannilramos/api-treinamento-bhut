@@ -7,5 +7,6 @@ import java.util.ArrayList;
 
 public interface UserRepository extends JpaRepository<User, Long> {
     User findByEmail(String email);
+
     ArrayList<User> findAll();
 }

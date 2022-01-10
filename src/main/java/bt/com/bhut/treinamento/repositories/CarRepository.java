@@ -7,4 +7,6 @@ import java.util.ArrayList;
 
 public interface CarRepository extends JpaRepository<Car, Long> {
     ArrayList<Car> findAll();
+
+    boolean existsCarByModelAndYear(String model, Integer year);
 }

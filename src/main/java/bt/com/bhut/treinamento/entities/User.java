@@ -13,6 +13,7 @@ import javax.persistence.Id;
 @Data
 @AllArgsConstructor
 public class User {
+
     private static final long serialVersionUID = 1L;
 
     @Id
