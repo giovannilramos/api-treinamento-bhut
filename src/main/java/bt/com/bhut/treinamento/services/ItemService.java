@@ -40,9 +40,9 @@ public class ItemService {
             throw new Exception("Item not found");
         }
         return findItem.map(el -> {
-            item.setQuantity(el.getQuantity());
-            item.setPrice(el.getPrice());
-            return repository.save(item);
+            el.setQuantity(item.getQuantity());
+            el.setPrice(item.getPrice());
+            return repository.save(el);
         }).get();
     }
 
