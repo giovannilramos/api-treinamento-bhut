@@ -25,6 +25,6 @@ public class Fields implements Serializable {
     private String title;
     private String description;
 
-    @OneToOne(optional = false)
+    @ManyToOne(optional = false)
     private Types type;
 }

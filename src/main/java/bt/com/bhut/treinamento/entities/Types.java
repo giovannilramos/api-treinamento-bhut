@@ -1,6 +1,5 @@
 package bt.com.bhut.treinamento.entities;
 
-import bt.com.bhut.treinamento.enums.TypesEnum;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
