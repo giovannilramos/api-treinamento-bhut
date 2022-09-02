@@ -23,6 +23,6 @@ public class TypesController {
 
     @GetMapping
     public ResponseEntity<List<TypesResponse>> listTypes() {
-        return ResponseEntity.status(HttpStatus.OK).body(this.listTypesService.listTypes());
+        return ResponseEntity.status(HttpStatus.OK).body(listTypesService.listTypes());
     }
 }

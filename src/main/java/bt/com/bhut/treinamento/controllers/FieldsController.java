@@ -22,7 +22,7 @@ public class FieldsController {
 
     @GetMapping
     public ResponseEntity<List<FieldsResponse>> listFields() {
-        return ResponseEntity.status(HttpStatus.OK).body(this.listFieldsService.listAllFields());
+        return ResponseEntity.status(HttpStatus.OK).body(listFieldsService.listAllFields());
     }
 
     @PostMapping
